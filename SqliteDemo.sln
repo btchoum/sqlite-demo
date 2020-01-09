@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDemo.IntegrationTests", "SqliteDemo.IntegrationTests\SqliteDemo.IntegrationTests.csproj", "{5A88A0AD-4AC2-4278-A05C-D54A64539765}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDemo.Data", "SqliteDemo.Data\SqliteDemo.Data.csproj", "{BFFD1F5D-6B21-4D83-8314-1F55818609BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5A88A0AD-4AC2-4278-A05C-D54A64539765}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A88A0AD-4AC2-4278-A05C-D54A64539765}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A88A0AD-4AC2-4278-A05C-D54A64539765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFD1F5D-6B21-4D83-8314-1F55818609BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFD1F5D-6B21-4D83-8314-1F55818609BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFD1F5D-6B21-4D83-8314-1F55818609BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFD1F5D-6B21-4D83-8314-1F55818609BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
