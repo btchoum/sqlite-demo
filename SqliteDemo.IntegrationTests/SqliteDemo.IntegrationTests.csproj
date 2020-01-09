@@ -69,7 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SqLiteTicketsDbContext.cs" />
-    <Compile Include="TicketsDbContextTests.cs" />
+    <Compile Include="SqlServerTicketsDbContext.cs" />
+    <Compile Include="SqlServerTicketsDbContextTests.cs" />
+    <Compile Include="SqliteTicketsDbContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

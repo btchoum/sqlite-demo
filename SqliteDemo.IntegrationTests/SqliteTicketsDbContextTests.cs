@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SqliteDemo.Data;
+using SqliteDemo.Data.Entities;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Linq;
 namespace SqliteDemo.IntegrationTests
 {
     [TestFixture]
-    public class TicketsDbContextTests
+    public class SqliteTicketsDbContextTests
     {
         [SetUp]
         public void SetUp()
@@ -16,6 +17,7 @@ namespace SqliteDemo.IntegrationTests
             {
                 context.Database.ExecuteSqlCommand("DELETE FROM Comments");
                 context.Database.ExecuteSqlCommand("DELETE FROM Tickets");
+                context.Database.ExecuteSqlCommand("DELETE FROM AppUsers");
             }
         }
 
@@ -25,10 +27,18 @@ namespace SqliteDemo.IntegrationTests
             CreateAndCountTicket();
         }
 
+        [Test] public void TicketsDbContext_CanBeCreated1() { CreateAndCountTicket(); }
+        [Test] public void TicketsDbContext_CanBeCreated2() { CreateAndCountTicket(); }
+        [Test] public void TicketsDbContext_CanBeCreated3() { CreateAndCountTicket(); }
+        [Test] public void TicketsDbContext_CanBeCreated4() { CreateAndCountTicket(); }
+        [Test] public void TicketsDbContext_CanBeCreated5() { CreateAndCountTicket(); }
+
+
         private static void CreateAndCountTicket()
         {
             using (var context = new SqLiteTicketsDbContext())
             {
+
                 var ticket = new Ticket
                 {
                     Title = "Title",
@@ -36,8 +46,8 @@ namespace SqliteDemo.IntegrationTests
                     CreatedAt = DateTime.Now
                 };
 
-                ticket.AddComment("Some Comment");
-                ticket.AddComment("Some Other Comment");
+                ticket.AddComment("Some Comment", -1);
+                ticket.AddComment("Some Other Comment", -1);
 
                 context.Tickets.Add(ticket);
                 context.SaveChanges();
