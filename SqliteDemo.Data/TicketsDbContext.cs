@@ -21,23 +21,28 @@ namespace SqliteDemo.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Comment>()
-                .HasRequired<Ticket>(c => c.Ticket)
-                .WithMany(t => t.Comments)
-                .HasForeignKey<int>(c => c.TicketId)
+            modelBuilder.Entity<Ticket>()
+                .HasRequired(t => t.CreatedBy)
+                .WithMany(u => u.TicketsCreated)
+                .HasForeignKey(t => t.CreatedById)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Ticket>()
-                .HasRequired<AppUser>(c => c.CreatedBy)
-                .WithMany(a => a.TicketsCreated)
-                .HasForeignKey<int>(t => t.CreatedById)
+                .HasOptional(t => t.Owner)
+                .WithMany(u => u.TicketsOwned)
+                .HasForeignKey(t => t.OwnerId)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Comment>()
+                .HasRequired(t => t.CreatedBy)
+                .WithMany(u => u.CommentsCreated)
+                .HasForeignKey(t => t.CreatedById)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Comment>()
-                .HasRequired<AppUser>(c => c.CreatedBy)
-                .WithMany(a => a.CommentsCreated)
-                .HasForeignKey<int>(c => c.CreatedById)
+                .HasRequired(t => t.Ticket)
+                .WithMany(t => t.Comments)
+                .HasForeignKey(c => c.TicketId)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);

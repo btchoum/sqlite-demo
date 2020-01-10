@@ -16,6 +16,9 @@ namespace SqliteDemo.Data.Entities
         public virtual AppUser CreatedBy { get; set; }
         public int CreatedById { get; set; }
 
+        public virtual AppUser Owner { get; set; }
+        public int? OwnerId { get; set; }
+
         public Ticket()
         {
             CreatedAt = DateTime.Now;
